@@ -1,0 +1,59 @@
+
+Here is a partial list of things that could be done to RTWho. This list is in no particular
+order.
+
++ The columns on the display don't make much sense---especially now that the program is more
+generic about the kinds of systems it can scan. New columns should be defined. (It would be cool
+if the program allowed the user to specify which columns to display from a list of
+possibilities)
+
++ It should be possible to sort the columns.
+
++ It would be cool if the user could "filter" the display by showing users meeting certain
+conditions, etc. The ability to search the list would be desirable and could be considered a
+simple kind of filtering.
+
++ The program should track login times and time logged in. For people that are already logged in
+when the program starts, the program can just display a '?' for this information.
+
++ The ability to store information (in a file) about who logs in when and where might be useful.
+One could run the program overnight and then see who was on the system at strange hours.
+
++ Privacy issues should be addressed.
+
++ The old RTWho program (the DOS version from yesteryear) bolded users when they first logged in
+and greyed them out when they logged out. It would be nice to recover that feature.
+
++ BUG: I don't think the alert feature works (it is supposed to alert the user when a particular
+person logs in). It should be fixed.
+
++ BUG: The initial connections to rtwhod are made when the WM_CREATE message is being processed.
+At that time there is no window on the screen. If the connections time out there is a long delay
+when nothing appears to be happening. Users will assume the program did not start.
+
++ BUG: The icon for the program is ugly and should be fixed/enhanced.
+
++ Additional "modules" could be created. For example one could image an RTWho server that
+watches our Jabber server or that watches a specific IRC channel. The RTWho client could consult
+these other servers as it does rtwhod for Unix systems, allowing RTWho to watch all sorts of
+interesting things. Many possibilities exist.
+
++ Support for scanning a Windows domain should be added (this is when the program will get
+really interesting. It's much more fun to watch RTWho when there are a couple of hundred users
+listed).
+
++ The old RTWho attempted to show the location of each logged in user. It would be nice to
+recover that functionality to whatever degree is feasible.
+
++ The program should be streamlined so that it will work (could be configured to work) on other
+networks besides our own. That would make RTWho interesting to other communities besides VTC.
+This ability should be a consequence of making RTWho more configurable.
+
++ Documentation for the program should be written. It could use a working 'Help' menu item.
+
++ The communication between rtwhod and the RTWho client should probably be enhanced and
+documented.
+
++ A proper installer should be created. This is a must before the program can be used by non
+developers (who might not have the right DLLs available)
+

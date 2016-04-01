@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- FILE        : SampleMessage.xml
+     LAST REVISED: 2007-03-25
+     AUTHOR      : (C) Copyright 2007 by the VTC Computer Club
+     SUBJECT     : Sample message in the RTWho message protocol.
+-->
+
+<RTWho xmlns="http://solstice.vtc.edu/XML/RTWho_0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://solstice.vtc.edu/XML/RTWho_0.0 RTWho.xsd">
+  <serverInformation>
+    <name>solstice.vtc.edu</name>
+    <OS type="Linux">Fedora Core 4</OS>
+  </serverInformation>
+  <userList>
+    <user name="jjones" login-time="2006-02-16T16:30:15">
+      <location>Green 111, Station #1</location>
+    </user>
+    <user name="pchapin" real-name="Peter C. Chapin" login-time="2006-02-16T04:37:14">
+      <location>Green 227</location>
+    </user>
+  </userList>
+</RTWho>

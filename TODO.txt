@@ -1,0 +1,11 @@
+
++ The main technical feature that RTWho needs is a Windows server that can enumerate users
+logged into a Windows domain. This would make RTWho a lot more interesting to the VTC community.
+
++ Various UI improvements should be made. The information displayed about users should be
+enriched.
+
++ Some thought needs to be given to privacy issues. What about users who don't want to be
+monitored in this way?
+
++ Unit tests and documentation are always good. RTWho lacks both.

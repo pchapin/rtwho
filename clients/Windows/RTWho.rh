@@ -1,0 +1,46 @@
+/****************************************************************************
+FILE          : rtwho.rh
+LAST REVISION : 2006-02-03
+SUBJECT       : Resource identifiers for the rtwho project.
+PROGRAMMER    : (C) Copyright 2000-2006 by the VTC Computer Club
+
+
+LICENSE
+
+This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; either version 2 of the License, or (at your
+option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANT-
+ABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public
+License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+
+Please send comments or bug reports to
+
+     VTC Computer Club
+     c/o Peter C. Chapin
+     Vermont Technical College
+     Randolph Center, VT 05061
+     vtc3@ecet.vtc.edu
+****************************************************************************/
+
+/* Main resources. */
+
+#define MAIN_MENU          1      // Identifier for Main Menu
+#define POPUP_MENU         2      // Identifier for Pop up menu
+#define RTW_ICON          30      // Icon Identifier
+#define FILE_UPDATE      101      // Update on Main Menu
+#define FILE_CONFIG      102      // Config on Main Menu
+#define FILE_EXIT        108      // Exit on Main Menu
+#define IDC_EDIT1        101      // Dialog Edit Control (time)
+#define IDC_EDIT2        103      // Dialog Edit control (Username)
+#define UP_CHAT          802      // Launch Chat Item
+#define HLP_ABOUT        903      // About Box on Main menu
+#define MYWM_NOTIFYICON 1001      // Task Bar Notifier
+#define ID_TIMER        1234      // Timer identifier.

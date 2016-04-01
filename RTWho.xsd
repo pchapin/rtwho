@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- FILE        : RTWho.xsd
+     LAST REVISED: 2007-03-25
+     AUTHOR      : (C) Copyright 2007 by the VTC Computer Club
+     SUBJECT     : XML schema for RTWho message protocol.
+
+This markup describes the format of messages sent from RTWho servers to the RTWho
+client. The message format is independent of the server host operating system. If
+the client knows how to process messages in this format it can process messages from
+all host types.
+
+{ How do we put this under the GPL or similar license? }
+
+TO DO
+
++ 
+-->
+
+<xs:schema targetNamespace="http://solstice.vtc.edu/XML/RTWho_0.0"
+  xmlns="http://solstice.vtc.edu/XML/RTWho_0.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified" attributeFormDefault="unqualified" xml:lang="en-US">
+
+  <xs:element name="RTWho">
+    <xs:annotation>
+      <xs:documentation>This is the root element of an RTWho server message. It contains both
+        information about the server host and, of course, a list of users on the server
+      host.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="serverInformation" type="serverInformationType"/>
+        <xs:element name="userList" type="userListType" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="serverInformationType">
+    <xs:annotation>
+      <xs:documentation>Elements with this type describe information about an RTWho server. In most
+        cases it provides information about the host on which the server is executing. However, in
+        cases where a server is monitoring a host remotely, this element is intended to convey
+        information about the monitored host.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="OS">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="type" type="xs:string"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="userListType">
+    <xs:annotation>
+      <xs:documentation>Elements with this type are containers for user elements.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="user" type="userType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="userType">
+    <xs:annotation>
+      <xs:documentation>Elements with this type describe information about a single instance of a
+        specific user on the monitored system. In cases where a single user is logged into the
+        monitored system more than once, multiple elements of this type should be
+        returned.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="location" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string"/>
+    <xs:attribute name="login-time" type="xs:dateTime"/>
+    <xs:attribute name="real-name" type="xs:string"/>
+  </xs:complexType>
+
+</xs:schema>

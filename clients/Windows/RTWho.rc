@@ -1,0 +1,69 @@
+/****************************************************************************
+FILE          : rtwho.rc
+LAST REVISION : 2006-02-17
+SUBJECT       : Resource script for the rtwho program.
+PROGRAMMER    : (C) Copyright 2000-2006 by the VTC Computer Club
+
+LICENSE
+
+This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; either version 2 of the License, or (at your
+option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANT-
+ABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public
+License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+
+Please send comments or bug reports to
+
+     VTC Computer Club
+     c/o Peter C. Chapin
+     Vermont Technical College
+     Randolph Center, VT 05061
+     vtc3@ecet.vtc.edu
+****************************************************************************/
+
+#include <windows.h>
+#include "RTWho.rh"
+
+MAIN_MENU MENU 
+{
+  POPUP "&File"
+  {
+    MENUITEM "Update", 101
+    MENUITEM "Config", 102
+    MENUITEM SEPARATOR
+    MENUITEM "E&xit",  108
+  }
+  MENUITEM "\a&About", 903
+}
+
+RTW_ICON ICON "RTWho.ico"
+
+POPUP_MENU MENU 
+{
+  POPUP ""
+  {
+    MENUITEM "&Chat", 802
+  }
+}
+
+CONFIGBOX1 DIALOG 89, 59, 215, 102
+EXSTYLE WS_EX_DLGMODALFRAME
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_CAPTION
+CAPTION "RTWho Configuration"
+{
+  CONTROL "OK", IDOK, "BUTTON", BS_PUSHBUTTON | BS_CENTER | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 152, 6, 50, 14
+  CONTROL "Cancel", IDCANCEL, "BUTTON", BS_PUSHBUTTON | BS_CENTER | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 152, 26, 50, 14
+  CONTROL "", IDC_EDIT1, "edit", ES_LEFT | ES_UPPERCASE | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 16, 24, 12, 13, 0
+  CONTROL "How Often do you want me to update?", -1, "static", SS_LEFT | WS_CHILD | WS_VISIBLE, 16, 13, 136, 11, 0
+  CONTROL "User name that you would like to be notified if they log in.", -1, "static", SS_LEFT | WS_CHILD | WS_VISIBLE, 16, 60, 108, 20, 0
+  CONTROL "", IDC_EDIT2, "edit", ES_LEFT | ES_UPPERCASE | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 16, 78, 84, 13, 0
+  CONTROL "Min", -1, "static", SS_LEFT | WS_CHILD | WS_VISIBLE, 28, 28, 27, 12, 0
+}

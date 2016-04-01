@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- FILE         : RTWho/index.html
+     LAST REVISED : 2008-10-25
+     AUTHOR       : (C) Copyright 2009 by Peter C. Chapin
+     SUBJECT      : Index page for the RTWho project. -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+
+  <head>
+    <meta name="Author" content="Peter C. Chapin"/>
+    <meta name="ROBOTS" content="NOARCHIVE"/>
+    <title>RTWho Project Page</title>
+  </head>
+
+  <body>
+    <h1>RTWho Project Page</h1>
+
+    <hr/>
+
+    <p>RTWho is a program that monitors users on several systems at once in real time. It
+    consists of a client and one or more servers. Each server runs on a machine that is to be
+    monitored and collects information about the users currently logged into that machine. The
+    client can be configured to poll one or more servers to retrieve the collected user
+    information. The client then provides an integrated display of this information, letting the
+    client's user monitor several machines simultaneously.</p>
+
+    <p>Currently the only client available is a Windows program and the only server available is
+    for POSIX systems (Linux, FreeBSD). There are plans to create additional clients and
+    servers. For example, a server could be created that monitors an IRC channel and thus allows
+    the client to display information about who is on that channel.</p>
+
+    <h2>Downloads</h2>
+
+    <p>An experimental <a href="RTWho-0.0.zip">Win32 client archive</a> is available. To
+    install, unpack the archive in an empty folder, edit the <tt>RTWconfig.cfg</tt> file (see
+    below), and then run <tt>RTWho.exe</tt>. RTWho does not use the registry nor does it modify
+    the state of your system. To uninstall, simply delete the folder you created above. RTWho
+    can be run from flash drives.</p>
+
+    <p>Note that RTWho is currently under development and is very much unfinished. It lacks
+    important features and may have significant bugs. Only run the current release of RTWho if
+    you are willing to run experimental, pre-alpha software. At the moment RTWho is not
+    versioned; each build is instead marked with a build date (shown in the title bar of the
+    main window). Use this date to distinguish different releases during the development phase
+    of the program.</p>
+
+    <p>If you wish to install an RTWho server, you currently need to compile it from source. No
+    server distribution is available at this time.</p>
+
+    <h2><tt>RTWconfig.cfg</tt> Documentation</h2>
+
+    <p><tt>RTWconfig.cfg</tt> is the RTWho client configuration file. It is a plain text file
+    intended for editing by humans. RTWho looks for its configuration file in the same folder as
+    the <tt>RTWho.exe</tt> executable.</p>
+
+    <p>Lines in <tt>RTWconfig.cfg</tt> are of the form <tt>NAME=value</tt>. Blank lines are
+    ignored and all material on a line after a '#' is ignored. Lines can be of arbitrary length.
+    It is recommended that you do not include spaces around the '=' in each <tt>NAME=value</tt>
+    pair. Each NAME is called a configuration parameter.</p>
+
+    <p>The following configuration parameters are defined</p>
+
+    <dl>
+      <dt>SERVERS</dt>
+      <dd>
+        <p>A space delimited list of servers the client should poll for user information. Each
+        server definition is in the form <i>hostname:port</i>. The port specification is
+        required (since RTWho has no default port). The entire list must be provided on a single
+        line.</p>
+          
+        <p>Example:</p>
+        <p>
+          <tt>SERVERS=solstice.vtc.edu:9001 lemuria.cis.vtc.edu:9001</tt>
+        </p>
+      </dd>
+    </dl>
+
+    <h2>Compiling RTWho</h2>
+
+    <p>The source code for RTWho is available via Subversion at the URL
+    <tt>svn://whirlwind.cis.vtc.edu/RTWho</tt>.</p>
+
+    <p>RTWho makes use of a separate library of network related classes named <i>netstream</i>.
+    This library is included in the source tree; it does not need to be separately downloaded.
+    However, you should keep in mind that netstream is logically independent of RTWho and
+    provides build control files that can optionally be used to just build that library. During
+    the compilation of the RTWho the netstream library is compiled automatically so you don't
+    need to worry about netstream unless you want to.</p>
+
+    <h3>Windows Client and Server</h3>
+
+    <p>At the top of the source tree you will find a file <tt>RTWho.sln</tt> which is a solution
+    file for Visual Studio 2008. This solution contains separate projects for the Windows client
+    and the Windows server. Building the solution will build both projects.</p>
+
+    <p>The client requires that the Xerces XML library be installed and compiled first. To do
+    this, download Xerces-C from the Apache XML web site and unpack it in a suitable location.
+    RTWho was built using Xerces-C v3.0.0 although other nearby versions of Xerces will probably
+    work. Set the environment variable XERCESCROOT to point at the folder where you installed
+    Xerces. The Visual Studio project files use this environment variable to locate the Xerces
+    library.</p>
+
+    <p>In addition there is an Open Watcom project file named <tt>RTWho.wpj</tt> in the root of
+    the source tree. This project only contains a target for the Windows server because, at this
+    time, Open Watcom is not able to compile the Windows client (the Xerces library does not
+    support Open Watcom, for one thing).</p>
+
+    <h3>POSIX Server</h3>
+
+    <p>The POSIX server assumes the compiler is <tt>gcc</tt>. Go into the <tt>servers/POSIX</tt>
+    directory and type <tt>make</tt> to build the program. The resulting executable,
+    <tt>rtwhod</tt>, can be run as a demon process. It expects a port number on the command
+    line. There is no default port.</p>
+
+    <!-- BEGIN signature block -->
+    <hr/>
+    <address>
+    &copy; Copyright 2009 by the <a href="mailto:pcc482719@gmail.com">Peter C. Chapin</a>.<br/>
+    Last Revised: <b>October 25, 2008</b>
+  </address>
+    <!-- END signature block -->
+  </body>
+</html>
