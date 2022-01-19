@@ -37,7 +37,7 @@ using namespace std;
 #include <sys/wait.h>
 #include <unistd.h>
 
-#include "connection.h"
+#include "connection.hpp"
 #include "sem.h"
 
 #define BUFFER_SIZE 128
