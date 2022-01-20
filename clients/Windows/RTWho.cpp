@@ -60,7 +60,7 @@ BOOL MyTaskBarDeleteIcon(HWND hwnd, UINT uID);
 // Declaration callback functions.
 LRESULT CALLBACK window_procedure(HWND, UINT, WPARAM, LPARAM);
 BOOL    CALLBACK IntroBoxProc    (HWND, UINT, WPARAM, LPARAM);
-BOOL    CALLBACK ConfigBoxProc   (HWND, UINT, WPARAM, LPARAM);
+INT_PTR CALLBACK ConfigBoxProc   (HWND, UINT, WPARAM, LPARAM);
 BOOL    CALLBACK SendMsgBoxProc  (HWND, UINT, WPARAM, LPARAM);
 
 // Used for popup menu
@@ -436,7 +436,7 @@ BOOL MyTaskBarDeleteIcon(HWND hwnd, UINT uID)
   return res;
 }
 
-BOOL CALLBACK ConfigBoxProc(HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM /* lParam */)
+INT_PTR CALLBACK ConfigBoxProc(HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM /* lParam */)
  {
    char text[50];
    switch(iMsg) {

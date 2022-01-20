@@ -42,10 +42,10 @@ using namespace std;
 #include <xercesc/framework/MemBufInputSource.hpp>
 #include <xercesc/parsers/SAXParser.hpp>
 #include <xercesc/util/PlatformUtils.hpp>
-namespace Xerces = xercesc_3_0;
+namespace Xerces = xercesc_3_2;
 
 // RTWho
-#include <connection.h>
+#include <connection.hpp>
 #include "config.h"
 #include "RTWho.h"
 #include "XMLHandler.h"

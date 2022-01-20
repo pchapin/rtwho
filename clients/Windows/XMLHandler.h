@@ -38,7 +38,7 @@ Please send comments or bug reports to
 
 #include <xercesc/sax/AttributeList.hpp>
 #include <xercesc/sax/HandlerBase.hpp>
-namespace Xerces = xercesc_3_0;
+namespace Xerces = xercesc_3_2;
 
 #include "RTWho.h"
 
